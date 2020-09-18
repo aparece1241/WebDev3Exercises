@@ -6,20 +6,26 @@
     $errors = [];
 
     if(isset($_POST["email"]) && isset($_POST["password"]) ){
-        if(empty($_POST["email"])){
-            $errors["email"] = "email should not be empty!";
-        }
-        if(empty($_POST["password"])){
-            $errors["password"] = "password should not be empty!";
-        }
-        $_SESSION["email"] = $_POST["email"];
-        $_SESSION["password"] = $_POST["password"];
-        if(empty($errors)){
+        
+        $errors["email"] = (empty($_POST["email"]))?"Email should not be empty!":"";
+        $errors["password"] = (empty($_POST["password"]))?"Password should not be empty!":"";
+        $errors["email"] = ($_SESSION["user"]["userdata"]["email"] != $_POST["email"]) ? "This email doesn't much any email!":"";
+        $errors["password"] = ($_SESSION["user"]["userdata"]["password"] != $_POST["password"]) ? "Incorrect password!": "";
+        
+        if(isEmpty($errors) == "false"){
+            $_SESSION["user"]["logging_in"] = ["email" => $_POST["email"],"password" =>$_POST["password"]];
             header("location: bio.php");
         }
     }
 
-
+    function isEmpty($arr){
+        foreach ($arr as $el){
+            if($el != ""){
+                return "true";
+            }
+        }
+        return "false";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -36,16 +42,18 @@
         <h1>Login</h1>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <span class="err"><?php echo (empty($errors["email"]))?"":$errors["email"];?></span><br>
-                <input type="text" name="email" placeholder="Email">
+                <input type="text" name="email" placeholder="Email" value="<?php echo (empty($_POST["email"]))? "": $_POST["email"]?>">
                 <br>
                 <span class="err"><?php echo (empty($errors["password"]))?"":$errors["password"];?></span><br>
                 <input type="password" name="password" placeholder="Password">
+                <br>
                 <br>
                 <input type="submit" class="submitBnt" value="Login">
             </form>
             <p>Haven't join yet?<a class="links" href="register.php">Join Now!</a></p>
         </div>
-        
+        <br>
+        <br>
     </div>
     <script src="./src/main.js"></script>
 </body>

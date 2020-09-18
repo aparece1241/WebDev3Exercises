@@ -1,10 +1,44 @@
 body {
     padding:0px;
     margin: 0px;
+    background-color: rgb(6, 15, 61);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .err {
     color: crimson;
+}
+
+.header {
+    background-color:rgb(6, 15, 61);
+    box-shadow: 0px 5px 40px rgb(90, 90, 128);
+    border: solid 2px blue;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    color: white;
+}
+
+#avatar {
+    border-radius: 0px;
+    border:solid green 1px;
+}
+
+.profile {
+    display: inline-grid;
+    padding-top: 150px;
+    width: 100%;
+    grid-template-columns: 30% 65%;
+    justify-content:center;
+    color:white;
+  
+}
+.profile-items{
+    border: solid 2px blue;
+}
+
+#avatar{
+    border-radius: 200px;
 }
 
 .background {
@@ -13,7 +47,6 @@ body {
     width: 100%;
     height: 100%;
     padding-top: 80px;
-    background-color: rgb(6, 15, 61);
     overflow: auto;
 }
 
@@ -21,22 +54,25 @@ body {
     position: relative;
     text-align: center;
     width: 400px;
-    height: 550px;
+    height: 600px;
     border: solid blue 2px;
     background-color: darkblue;
-    box-shadow: 0px 5px 40px blue;
+    box-shadow: 0px 5px 5px blue;
     color: white;
     display: grid;
     align-content: center;
+
 }
 
 input {
     width: 80%;
-    padding: 12px;
+    padding: 10px;
     margin-top: 8px;
     border: solid  darkblue 2px;
     border-radius: 10px;
 }
+
+
 
 .submitBnt {
     background-color: cornflowerblue;
