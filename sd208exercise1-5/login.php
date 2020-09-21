@@ -50,7 +50,7 @@
                 <br>
                 <input type="submit" class="submitBnt" value="Login">
             </form>
-            <p>Haven't join yet?<a class="links" href="register.php">Join Now!</a></p>
+            <p>Haven't join yet?|<a class="links" href="register.php">Join Now!</a></p>
         </div>
         <br>
         <br>

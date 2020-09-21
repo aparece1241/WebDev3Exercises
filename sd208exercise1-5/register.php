@@ -27,10 +27,13 @@
     
         if($_POST["confirmed-email"] != $_POST["email"] ){
             $errors["confirmed-email"] = "Doesn't match to the email!";
+            $errorStatus = true;
         }
         if($_POST["confirmed-password"] != $_POST["password"]){
             $errors["confirmed-password"] = "Doesn't match to the password!";
+            $errorStatus = true;
         }
+
 
         //saving to the session
         if(!$errorStatus){
@@ -92,7 +95,7 @@
                 </select>
                 <input type="submit" class="submitBnt" value="Register">
             </form>
-            <p>Already have an account? <a href="login.php">Login here!</a></p>
+            <p>Already have an account?|<a href="login.php">Login here!</a></p>
         </div>
         <br>
         <br>
