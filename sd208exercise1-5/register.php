@@ -60,10 +60,8 @@
     <div class="background">
         <div class="form_card">
             <br>
-            <br>
-            <h1>Rigester</h1>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"><br>
+            <h1>Register</h1>
                 <span class="err"><?php echo (empty($errors["firstname"]))?"":$errors["firstname"];?></span><br>
                 <input type="text" name="firstname" placeholder="First Name" value="<?php echo (empty($_POST["firstname"]))? "": $_POST["firstname"]?>"><br>
 
@@ -84,20 +82,17 @@
 
                 <span class="err"><?php echo (empty($errors["confirmed-password"]))?"":$errors["confirmed-password"];?></span><br>
                 <input type="password" name="confirmed-password" placeholder="Confirm Password" value="<?php echo (empty($_POST["confirmed-password"]))? "": $_POST["confirmed-password"]?>"><br>
-
-                <select name="avatar" class="avatar" style = "margin-top: 10px;width: 87%;padding:10px;border-radius:10px;">
+                <br>
+                <label for="avatar">Choose your avatar: </label>
+                <select name="avatar" class="avatars">
                     <option value="avatar1">Default.png</option>
                     <option value="avatar2">Male.png</option>
                     <option value="avatar3">Female.png</option>
                     <option value="avatar4">Random.png</option>
                 </select>
-                <br>
-                <input type="submit" class="submitBnt" value="Register"><br>
-                <p>Already have an account? <a href="login.php">Login here!</a></p>
-                <br>
-                <br>
+                <input type="submit" class="submitBnt" value="Register">
             </form>
-            
+            <p>Already have an account? <a href="login.php">Login here!</a></p>
         </div>
         <br>
         <br>

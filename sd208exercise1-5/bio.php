@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Hello <?php echo $_SESSION["user"]["userdata"]["firstname"]; ?></h1>
+        <h1 style="margin-left: 10px;"><?php echo $_SESSION["user"]["userdata"]["firstname"].'\'s bio';?></h1>
     </div>
     <div class="profile">
         <div class="profile-items">
@@ -19,7 +19,11 @@
         </div>
         
         <div class="profile-items">
-            <h2>Hello <?php echo $_SESSION["user"]["userdata"]["firstname"]; ?></h2>
+            <div id="items">
+                <h2><?php echo $_SESSION["user"]["userdata"]["firstname"]." " ; ?><?php echo $_SESSION["user"]["userdata"]["lastname"]; ?></h2>
+                <p><?php echo "From: ". $_SESSION["user"]["userdata"]["address"]." " ; ?></p>
+                <p><?php echo "Contact me through: ". $_SESSION["user"]["userdata"]["email"]." " ; ?></p>
+            </div>
         </div>
     </div>
   
