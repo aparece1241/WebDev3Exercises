@@ -1,0 +1,138 @@
+body {
+    margin: 0px;
+    padding-top: 90px;
+}
+
+
+#form_handler {   
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 13, 13, 0.5);
+    padding-top: 20px;
+    z-index: 1;
+    /* display: grid; */
+    display: none;
+    justify-content: center;
+    margin-top: 0px;
+
+}
+
+@keyframes animate {
+    from {top: -300px; opacity: 0}
+    to {top: 0px;opacity: 1}
+}
+
+.modal-content {
+    color: white;
+    width: 500px;
+    height: 500px;
+    max-height: 100%;
+    border: solid 3px rgb(47, 107, 219);
+    text-align: center;
+    background-color: rgb(34, 28, 28);
+    padding: 10px;
+    z-index: 2;
+    animation-name: animate;
+    animation-duration: 1s
+}
+
+.input_box {
+    padding: 10px;
+    width: 95.2%;
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+}
+
+.input_submit {
+    width: 100%;
+}
+
+.header {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(34, 28, 28);
+}
+.header-items {
+    margin-top: 25px;
+    display: inline-flex;
+}
+
+.create-bnt {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    float: right;
+    margin-right: 30px;
+    border: solid rgb(47, 107, 219) 2px;
+}
+.create-bnt:hover {
+    background-color: rgb(47, 107, 219);
+    color: rgb(34, 28, 28);
+}
+
+.task_cont {
+    padding-top: 40px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-right:50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.task_card {
+    color: rgb(34, 28, 28);
+    border-radius:20px;
+    border: solid rgb(47, 107, 219) 4px;
+    box-shadow: 0px 0px 15px rgb(47, 107, 219);
+    display: inline-flex;
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 330px;
+    height: 250px;
+    text-align: center;
+}
+
+.del-bnt {
+    border: none;
+    background-color: red;
+    padding: 5px;
+    width: 95%;
+    border-radius: 5px;
+    color: white;
+    opacity: 0.9;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 150px;
+}
+
+
+.del {
+    display: none;
+    height: 100%;
+    width: 100%;
+    margin-top: -153px;
+    border-radius: 10px;
+}
+
+.task_card:hover .del {
+    display: block;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+
+.del-bnt:hover {
+    opacity: 0.5;
+}
+
+.descript {
+    position: relative;
+    width: 100%;
+}

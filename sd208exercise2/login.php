@@ -34,7 +34,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet'>
     <title>login</title>
+    <style>
+         body {
+            font-family: 'Kavoon';
+        }
+    </style>
 </head>
 <body>
     <div class="background">
@@ -50,7 +56,7 @@
                 <br>
                 <input type="submit" class="submitBnt" value="Login">
             </form>
-            <p>Haven't join yet?|<a class="links" href="register.php">Join Now!</a></p>
+            <p>Haven't join yet? | <a style="color: rgb(96, 197, 236);" class="links" href="register.php">Join Now!</a></p>
         </div>
         <br>
         <br>

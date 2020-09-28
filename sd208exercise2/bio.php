@@ -15,7 +15,9 @@
     </div>
     <div class="profile">
         <div class="profile-items">
-            <img id="avatar" src="./src/img/<?php echo $_SESSION["user"]["userdata"]["avatar"]; ?>.png" alt="avatar" srcset="">
+            
+            <img id="avatar" style = "width: 250px; height: 250px;" src="./src/img/<?php echo $_SESSION["user"]["userdata"]["avatar"]; ?>.png" alt="avatar" srcset="">
+            
         </div>
         
         <div class="profile-items">

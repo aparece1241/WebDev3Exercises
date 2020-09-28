@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --color-background-1: #1d2333;
     --color-background-2: #171d2d;
     --color-background-3: # ;
@@ -40,12 +40,13 @@
     --color-positive-transparent-1: rgba(24,204,81,0.48);
     --color-positive-transparent-2: rgba(24,204,81,0.24);
     --color-positive-transparent-3: rgba(24,204,81,0.12);
-}
+} */
 body {
     padding:0px;
     margin: 0px;
     background-color: rgb(6, 15, 61);
     font-family: 'Courier New', Courier, monospace;
+    
 }
 
 .err {
@@ -60,6 +61,10 @@ body {
     width: 100%;
     height: 80px;
     color: white;
+}
+
+.redirect {
+    color: rgb(96, 197, 236);
 }
 
 #avatar {
@@ -84,6 +89,8 @@ body {
 }
 
 #avatar{
+    width: 50px;
+    height: 50px;
     border-radius: 200px;
 }
 
@@ -121,4 +128,9 @@ input{
 
 .links {
     color: teal;
+}
+
+.submitBnt:hover {
+    color: rgb(34, 140, 226);
+    font-weight: bolder;
 }

@@ -14,6 +14,7 @@
     $errors;
     $userData;
     $errorStatus = false;
+    
     //validation
     if(isset($_POST["firstname"])){
         foreach($fields as $field){
@@ -56,17 +57,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet'>
     <link rel="stylesheet" href="./src/style.css">
     <title>Register</title>
+    <style>
+        body {
+            font-family: 'Kavoon';
+        }
+    </style>
 </head>
 <body>
     <div class="background">
         <div class="form_card">
-            <br>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"><br>
-            <h1>Register</h1>
-                <span class="err"><?php echo (empty($errors["firstname"]))?"":$errors["firstname"];?></span><br>
-                <input type="text" name="firstname" placeholder="First Name" value="<?php echo (empty($_POST["firstname"]))? "": $_POST["firstname"]?>"><br>
+            <h1 style="margin-top: -6px;">Register</h1>
+                <span style="margin-top: -15px;" class="err"><?php echo (empty($errors["firstname"]))?"":$errors["firstname"];?></span><br>
+                <input style="margin-top: 0px;" type="text" name="firstname" placeholder="First Name" value="<?php echo (empty($_POST["firstname"]))? "": $_POST["firstname"]?>"><br>
 
                 <span class="err"><?php echo (empty($errors["lastname"]))?"":$errors["lastname"];?></span><br>
                 <input type="text" name="lastname" placeholder="Last Name" value="<?php echo (empty($_POST["lastname"]))? "": $_POST["lastname"]?>"><br>
@@ -86,6 +92,8 @@
                 <span class="err"><?php echo (empty($errors["confirmed-password"]))?"":$errors["confirmed-password"];?></span><br>
                 <input type="password" name="confirmed-password" placeholder="Confirm Password" value="<?php echo (empty($_POST["confirmed-password"]))? "": $_POST["confirmed-password"]?>"><br>
                 <br>
+
+
                 <label for="avatar">Choose your avatar: </label>
                 <select name="avatar" class="avatars">
                     <option value="avatar1">Default.png</option>
@@ -93,9 +101,13 @@
                     <option value="avatar3">Female.png</option>
                     <option value="avatar4">Random.png</option>
                 </select>
-                <input type="submit" class="submitBnt" value="Register">
+           
+                <input type="submit" style="margin-top: 10px;" class="submitBnt" value="Register">
+
+
+
             </form>
-            <p>Already have an account?|<a href="login.php">Login here!</a></p>
+            <p>Already have an account? | <a class="redirect" style="color: rgb(96, 197, 236);" href="login.php">Login here!</a></p>
         </div>
         <br>
         <br>
