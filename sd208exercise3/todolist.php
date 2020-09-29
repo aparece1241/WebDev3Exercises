@@ -5,13 +5,12 @@ session_start();
 // $_SESSION["task"]=[];
 
 (isset($_POST["delete"])? deleteTask($_POST["id"]): "");    
+(isset($_POST["all"])? deleteAllTask():"");
 
-$errors = [];
 /**
  * Deletes a single task
  */
  function deleteTask($id){
-    $name = $_SESSION["task"][$id][0];
     array_splice($_SESSION["task"],$id,1);
     echo "<script>alert('successfully deleted!')</script>";
  }
@@ -20,7 +19,8 @@ $errors = [];
   * Deletes all task
   */
  function deleteAllTask(){
-
+    $_SESSION["task"] = [];
+    echo "<script>alert('successfully deleted!')</script>";
  }
 
 ?>
@@ -42,7 +42,7 @@ $errors = [];
             <form action="<?php echo htmlspecialchars("save.php");?>" method="post">
                 <input name="name" class="input_box" type="text" placeholder="Task name" required>
                 <textarea placeholder="Task Description ..." name="description" class="input_box" cols="30" rows="10" required></textarea>
-                <input type="submit" class="input_box input_submit" value="create">
+                <input type="submit" name="create" class="input_box input_submit" value="create">
             </form>
         </div>
     </div>
@@ -52,9 +52,9 @@ $errors = [];
 <div class="header">
     <h2 class="header-items" >This is Todo List</h2>
     <span class="header-items create-bnt items" onclick="showModalForm()">Create Task</span>
-    <?php if (count($_SESSION["task"])> 0):?>
-        <form action="" class="header-items create-bnt"  method="post">
-            <input type="submit" name="all" style = "background-color: none;"  value="Delete All">
+    <?php if (isset($_SESSION["task"]) && count($_SESSION["task"])> 0):?>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="header-items create-bnt"  method="post">
+            <input type="submit" class = "del-all" name="all" value="Delete All">
         </form>
     <?php endif?>
 </div>
@@ -74,6 +74,7 @@ $errors = [];
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                         <input type="hidden" name="id" value="<?php echo $index;?>">
                         <input type="submit" name="delete" class="del-bnt" value="Delete">
+                        <input type="submit" name="view" class="view-bnt" value="View">
                     </form>
                     </div>
                 </div>
