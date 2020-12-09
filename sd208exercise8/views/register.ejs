@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: 'Kavoon';
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="form_card">
+            <form action="/register" method="POST"><br>
+            <h1 style="margin-top: -6px;">Register</h1>
+                <span style="margin-top: -15px;" class="err"></span><br>
+                <input style="margin-top: 0px;" type="text" name="firstname" placeholder="First Name" value=""><br>
+
+                <span class="err"></span><br>
+                <input type="text" name="lastname" placeholder="Last Name" value=""><br>
+
+                <span class="err"></span><br>
+                <input type="text" name="address" placeholder="Address" value=""><br>
+
+                <span class="err"></span><br>
+                <input type="email" name="email" placeholder="Email Address" value=""><br>
+
+                <span class="err"></span><br>
+                <input type="email" name="confirmed-email" placeholder="Confirm Email Address" value=""><br>
+
+                <span class="err"></span><br>
+                <input type="password" name="password" placeholder="Password" value=""><br>
+
+                <span class="err"></span><br>
+                <input type="password" name="confirmed-password" placeholder="Confirm Password" value=""><br>
+                <br>
+
+
+                <label for="avatar">Choose your avatar: </label>
+                <select name="avatar" class="avatars">
+                    <option value="avatar1">Default.png</option>
+                    <option value="avatar2">Male.png</option>
+                    <option value="avatar3">Female.png</option>
+                    <option value="avatar4">Random.png</option>
+                </select>
+           
+                <input type="submit" style="margin-top: 10px;" class="submitBnt" value="Register">
+
+
+
+            </form>
+            <p>Already have an account? | <a class="redirect" style="color: rgb(96, 197, 236);" href="#">Login here!</a></p>
+        </div>
+        <br>
+        <br>
+    </div>
+</body>
+</html>
