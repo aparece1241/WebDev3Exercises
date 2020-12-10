@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+    <input type="hidden" id="error" value="<%=(typeof errors == 'undefined')? "": errors.message%>">
     <div class="background">
         <div class="form_card">
         <h1>Login</h1>
@@ -31,5 +32,14 @@
         <br>
         <br>
     </div>
+    <script>
+        window.onload = ()=> {
+            let errors = document.getElementById('error').value;
+            if(errors) {
+                // console.log(errors);
+                alert(errors);
+            }
+        }
+    </script>
 </body>
 </html>

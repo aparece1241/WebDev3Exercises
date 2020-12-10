@@ -27,18 +27,9 @@ app.get('/register', (req, res)=> {
     res.render('register');
 })
 
-//get login page
-app.get('/login', (req, res)=> {
-    res.render('login', )
-})
 
-//get bio page
-app.get('/bio', (req, res)=> {
-    res.render('bio',{user: req.session.user});
-})
-
-//get user data from register
-app.post('/register', (req, res)=> {
+//validate the  data 
+const validateRegistration = (req, res, next) => {
     let errors = {};
     let data = req.body;
     //validate user data
@@ -64,30 +55,52 @@ app.post('/register', (req, res)=> {
     }
     
     req.session.user = data;
+    next();
+}
+
+const vaildateLogin = (req, res, next)=> {
+    const email = req.body.email;
+    const password = req.body.password;
+    const user = req.session.user;
+    let errors = {};
+    if(email != user.email || password != user.password){
+        errors["message"] = "Invalid credentials!";
+        res.render('login',{errors: errors});
+        return;
+    }
+    next();
+} 
+
+
+//get login page
+app.get('/login', (req, res)=> {
+    res.render('login', )
+})
+
+//get bio page
+app.get('/bio', (req, res)=> {
+    res.render('bio',{user: req.session.user});
+})
+
+//get user data from register
+app.post('/register', validateRegistration, (req, res)=> {
     res.redirect('/login');
 })
 
 //get user info to login
-app.post('/login', (req, res)=> {
-    const email = req.body.email;
-    const password = req.body.password;
-    const user = req.session.user;
-    if(email == user.email && password == user.password){
-        res.redirect('/bio');
-        return;
-    }
-    res.render('login',{error: "Invalid credentials!"});
+app.post('/login', vaildateLogin, (req, res)=> {
+    res.redirect('/bio');
 })
 
 app.listen(PORT, console.log(`Running on port ${PORT}!`));
 
-
+//https://stackoverflow.com/questions/24669510/self-signed-cert-in-chain-error-while-using-npm-install
 
 //validate email 
 function validateEmail(email) {
     let regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
     let match = email.match(regex);
-    return (match)? true:false;
+    return (match)? false:true;
 }
 
 //check if there is field which is empty
@@ -102,16 +115,16 @@ function validateEmpty(data) {
     ]
     keys.forEach(key => {
         if(data[key] == '') {
-            return false;
+            return true;
         }
     })
 
-    return true;
+    return false;
 }
 
 function equalData(data, cdata) {
     if(data != cdata){
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }

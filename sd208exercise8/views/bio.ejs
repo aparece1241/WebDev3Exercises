@@ -16,15 +16,15 @@
     <div class="profile">
         <div class="profile-items">
             
-            <img id="avatar" style = "width: 250px; height: 250px;" src="./static/img/.png" alt="avatar" srcset="">
+            <img id="avatar" style = "width: 250px; height: 250px;" src="/static/img/<%= user.avatar %>.png" alt="avatar" srcset="">
             
         </div>
         
         <div class="profile-items">
             <div id="items">
-                <h2></h2>
-                <p></p>
-                <p></p>
+                <h2><%= user.firstname +" "+user.lastname%></h2>
+                <p><%= user.address %> </p>
+                <p><%= user.email %> </p>
             </div>
         </div>
     </div>

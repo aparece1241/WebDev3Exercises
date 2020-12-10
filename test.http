@@ -1,0 +1,28 @@
+##
+POST http://localhost:3000/api/bookstore
+Content-Type: application/json
+
+{
+    "title": "Harry Potter",
+    "author": "Bisag Kinsa",
+    "genre":"scifi, fantacy",
+    "yearPublished": "2001-2-10",
+    "price": 1000
+}
+
+####
+GET http://localhost:3000/api/bookstore/books HTTP/1.1
+
+#####
+GET http://localhost:3000/api/bookstore/books/5fabd311ba6b103c5cadfa8c
+
+####
+DELETE  http://localhost:3000/api/bookstore/5fabbe7eebaf853c146c713d
+
+####
+PATCH http://localhost:3000/api/bookstore/5fabd311ba6b103c5cadfa8c
+Content-Type: application/json
+
+{
+    "genre":"action"
+}

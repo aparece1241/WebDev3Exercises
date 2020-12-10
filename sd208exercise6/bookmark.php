@@ -1,7 +1,11 @@
 <?php
+    
     session_start();
     $data = (isset($_SESSION["bookmarks"]))? $_SESSION["bookmarks"]:array();
+
+
     if(isset($_POST["submit"])){
+
         if(!empty($_POST["bookmark_name"]) && !empty($_POST["bookmark_url"])){
             array_push($data,[$_POST["bookmark_name"],$_POST["bookmark_url"]]);
             $_SESSION["bookmarks"] = $data;
@@ -41,11 +45,14 @@
     </div>
     <?php if(isset($_SESSION["bookmarks"])):?>
         <?php for($id = 0;$id < count($_SESSION["bookmarks"]);$id++):?>
+
             <a href="<?php echo $_SESSION["bookmarks"][$id][1];?>"><?php echo $_SESSION["bookmarks"][$id][0]?></a>
+            
             <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                 <input type="hidden" name="del" value="<?php echo $id;?>">
                 <input type="submit" name="x" value="X">
             </form>
+
         <?php endfor?>
     <?php endif?>
 </body>
